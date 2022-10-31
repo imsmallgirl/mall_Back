@@ -1,7 +1,8 @@
-require("dotenv").config({ path: __dirname + "/config/.env" });
-require("./models").sequelize.sync({ alter: true });
+require('dotenv').config({ path: `${__dirname}/config/.env` });
+require('./models').sequelize.sync({ alter: true });
 
-const express = require("express");
+const express = require('express');
+
 const app = express();
 const port = process.env.PORT;
 
