@@ -9,6 +9,10 @@ const port = process.env.PORT;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+const routes = require('./routes');
+
+app.use('/api', routes);
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
