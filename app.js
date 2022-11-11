@@ -1,5 +1,5 @@
 require('dotenv').config({ path: `${__dirname}/config/.env` });
-require('./models').sequelize.sync();
+require('./models').sequelize.sync({ alter: true });
 
 const express = require('express');
 
