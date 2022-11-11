@@ -9,4 +9,13 @@ module.exports = {
       next(err);
     }
   },
+  findById: async (req, res, next) => {
+    const productId = req.params.id;
+    try {
+      const product = await productService.findById(productId);
+      res.send(product);
+    } catch (err) {
+      next(err);
+    }
+  },
 };
