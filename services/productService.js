@@ -1,6 +1,6 @@
 const ProductRepository = require('../repositories/productRepository');
 
-const { NotFoundException } = require('../errors');
+const { NotFoundException, BadRequestException } = require('../errors');
 
 class ProductService {
   static async findAll() {
@@ -27,6 +27,15 @@ class ProductService {
       updatedProductData,
     );
     return createdProduct;
+  }
+
+  static async delete(id) {
+    const deletedProduct = await this.findById(id);
+    if (!deletedProduct) {
+      throw new BadRequestException(`Not Exist product id : ${id}`);
+    }
+    await ProductRepository.delete(id);
+    return deletedProduct;
   }
 }
 

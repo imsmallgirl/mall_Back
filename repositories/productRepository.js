@@ -54,6 +54,22 @@ class ProductRepository {
         });
     });
   }
+
+  static async delete(id) {
+    return new Promise((resolve, reject) => {
+      Product.destroy({
+        where: {
+          id,
+        },
+      })
+        .then(() => {
+          resolve();
+        })
+        .catch(err => {
+          reject(new DatabaseException(err));
+        });
+    });
+  }
 }
 
 module.exports = ProductRepository;

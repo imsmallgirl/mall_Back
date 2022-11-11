@@ -40,4 +40,13 @@ module.exports = {
       next(err);
     }
   },
+  delete: async (req, res, next) => {
+    const productId = req.params.id;
+    try {
+      const product = await productService.delete(productId);
+      res.send(product);
+    } catch (err) {
+      next(err);
+    }
+  },
 };
