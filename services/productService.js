@@ -20,6 +20,14 @@ class ProductService {
     const createdProduct = await ProductRepository.create(createdProductData);
     return createdProduct;
   }
+
+  static async update(updatedProductId, updatedProductData) {
+    const createdProduct = await ProductRepository.update(
+      updatedProductId,
+      updatedProductData,
+    );
+    return createdProduct;
+  }
 }
 
 module.exports = ProductService;

@@ -42,6 +42,18 @@ class ProductRepository {
         });
     });
   }
+
+  static async update(id, data) {
+    return new Promise((resolve, reject) => {
+      Product.update(data, { where: { id } })
+        .then(res => {
+          resolve(res);
+        })
+        .catch(err => {
+          reject(new DatabaseException(err));
+        });
+    });
+  }
 }
 
 module.exports = ProductRepository;

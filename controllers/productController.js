@@ -27,4 +27,17 @@ module.exports = {
       next(err);
     }
   },
+  update: async (req, res, next) => {
+    const updatedProductId = req.params.id;
+    const updatedProductData = req.body;
+    try {
+      const updatedProduct = await productService.update(
+        updatedProductId,
+        updatedProductData,
+      );
+      res.send(updatedProduct);
+    } catch (err) {
+      next(err);
+    }
+  },
 };
