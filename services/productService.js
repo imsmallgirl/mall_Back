@@ -15,6 +15,11 @@ class ProductService {
     }
     return product;
   }
+
+  static async create(createdProductData) {
+    const createdProduct = await ProductRepository.create(createdProductData);
+    return createdProduct;
+  }
 }
 
 module.exports = ProductService;

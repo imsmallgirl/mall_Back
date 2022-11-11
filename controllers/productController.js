@@ -18,4 +18,13 @@ module.exports = {
       next(err);
     }
   },
+  create: async (req, res, next) => {
+    const createdProductData = req.body;
+    try {
+      const createdProduct = await productService.create(createdProductData);
+      res.send(createdProduct);
+    } catch (err) {
+      next(err);
+    }
+  },
 };
