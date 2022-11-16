@@ -33,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: 'Product',
       freezeTableName: true,
+      indexes: [{ unique: true, fields: ['name'] }],
     },
   );
 
